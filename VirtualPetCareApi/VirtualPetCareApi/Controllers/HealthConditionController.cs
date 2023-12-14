@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace VirtualPetCareApi.Controllers
+namespace VirtualPetCareApi.Controllers;
+
+[Route("api/v1/healthconditions")]
+[ApiController]
+public class HealthConditionController : Controller
 {
-    [Route("api/v1/healthconditions")]
-    [ApiController]
-    public class HealthConditionController : Controller
-    {
-    }
 }

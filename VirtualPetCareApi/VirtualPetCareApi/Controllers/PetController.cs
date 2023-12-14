@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace VirtualPetCareApi.Controllers
+namespace VirtualPetCareApi.Controllers;
+
+public class PetController : Controller
 {
-    public class PetController : Controller
-    {
-    }
 }

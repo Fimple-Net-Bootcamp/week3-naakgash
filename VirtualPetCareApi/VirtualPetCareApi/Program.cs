@@ -1,6 +1,18 @@
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using VirtualPetCare.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<PetDbContext>(x =>
+{
+    x.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"), option =>
+    {
+        option.MigrationsAssembly(Assembly.GetAssembly(typeof(PetDbContext)).GetName().Name);
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

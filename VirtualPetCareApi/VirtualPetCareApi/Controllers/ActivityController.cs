@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 
-namespace VirtualPetCareApi.Controllers
+namespace VirtualPetCareApi.Controllers;
+
+[Route("api/v1/activities")]
+[ApiController]
+public class ActivityController : Controller
 {
-    [Route("api/v1/activities")]
-    [ApiController]
-    public class ActivityController : Controller
-    {
-    }
 }
