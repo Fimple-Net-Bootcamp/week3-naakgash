@@ -1,15 +1,21 @@
-﻿using VirtualPetCare.Core.Interfaces.Repositories;
+﻿using VirtualPetCare.Core.Models;
+using VirtualPetCare.Core.Repositories;
 
 namespace VirtualPetCare.Repository.Repositories;
 
-internal class HealthConditionRepository<T> : IHealthConditionRepository<T> where T : class
+public class HealthConditionRepository : IHealthConditionRepository
 {
-    public Task<T> GetByIdAsync(int id)
+    private readonly PetDbContext _petDbContext;
+    public HealthConditionRepository(PetDbContext petDbContext)
     {
-        throw new NotImplementedException();
+        _petDbContext = petDbContext;
+    }
+    public async Task<HealthCondition> GetByIdAsync(int id)
+    {
+        return _petDbContext.HealthConditions.Where(x => x.Id == id).FirstOrDefault();
     }
 
-    public void UpdateWithPatch(int id, T entity)
+    public void UpdateWithPatch(int id, HealthCondition healthCondition)
     {
         throw new NotImplementedException();
     }

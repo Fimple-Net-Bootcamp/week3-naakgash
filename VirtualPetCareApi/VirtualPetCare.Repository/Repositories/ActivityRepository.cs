@@ -1,16 +1,24 @@
-﻿using VirtualPetCare.Core.Interfaces.Repositories;
+﻿using VirtualPetCare.Core.Models;
+using VirtualPetCare.Core.Repositories;
 
 namespace VirtualPetCare.Repository.Repositories;
 
-public class ActivityRepository<T> : IActivityRepository<T> where T : class
+public class ActivityRepository : IActivityRepository
 {
-    public Task AddAsync(T entitiy)
+    private readonly PetDbContext _petDbContext;
+    public ActivityRepository(PetDbContext petDbContext)
     {
-        throw new NotImplementedException();
+        _petDbContext = petDbContext;
+    }
+    public async Task<Activity> AddAsync(Activity activity)
+    {
+        _petDbContext.Activities.Add(activity);
+        await _petDbContext.SaveChangesAsync();
+        return activity;
     }
 
-    public Task<T> GetByIdAsync(int id)
+    public async Task<Activity> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return _petDbContext.Activities.Where(x => x.Id == id).FirstOrDefault();
     }
 }

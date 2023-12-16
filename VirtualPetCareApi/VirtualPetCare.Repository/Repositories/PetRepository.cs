@@ -1,26 +1,46 @@
-﻿using VirtualPetCare.Core.Interfaces.Repositories;
+﻿using System.Reflection.PortableExecutable;
+using VirtualPetCare.Core.Models;
+using VirtualPetCare.Core.Repositories;
 
 namespace VirtualPetCare.Repository.Repositories;
 
-public class PetRepository<T> : IPetRepository<T> where T : class
+public class PetRepository : IPetRepository
 {
-    public Task AddAsync(T entity)
+    private PetDbContext _petDbContext;
+    public PetRepository(PetDbContext petDbContext)
     {
-        throw new NotImplementedException();
+        _petDbContext = petDbContext;
+    }
+    public async Task<Pet> AddAsync(Pet pet)
+    {
+        _petDbContext.Pets.Add(pet);
+        await _petDbContext.SaveChangesAsync();
+        return pet;
     }
 
-    public IQueryable<T> GetAll()
+    public IQueryable<Pet> GetAll()
     {
-        throw new NotImplementedException();
+        return _petDbContext.Pets;
     }
 
-    public Task<T> GetByIdAsync(int id)
+    public async Task<Pet> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return _petDbContext.Pets.Where(x => x.Id == id).FirstOrDefault();
+    }
+    public async Task<Pet> UpdateWithPut(int id, Pet pet)
+    {
+        var current = _petDbContext.Pets.Where(x => x.Id == id).FirstOrDefault();
+
+        if (current is null)
+        {
+            return null;
+        }
+
+        current.Name = pet.Name;
+
+        await _petDbContext.SaveChangesAsync();
+
+        return current;
     }
 
-    public void UpdateWithPut(int id, T entity)
-    {
-        throw new NotImplementedException();
-    }
 }

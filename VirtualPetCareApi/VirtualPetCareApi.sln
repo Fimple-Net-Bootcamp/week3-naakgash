@@ -5,11 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualPetCare.Api", "VirtualPetCareApi\VirtualPetCare.Api.csproj", "{E84FE523-E486-474B-919A-E9F4CF3E6680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualPetCare.Core", "VirtualPetCare.Core\VirtualPetCare.Core.csproj", "{4C165E6A-132B-419F-B67E-69A7EAD00829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualPetCare.Core", "VirtualPetCare.Core\VirtualPetCare.Core.csproj", "{4C165E6A-132B-419F-B67E-69A7EAD00829}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualPetCare.Repository", "VirtualPetCare.Repository\VirtualPetCare.Repository.csproj", "{8F5267ED-29B7-4B4B-96B4-BC22FAF2112E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualPetCare.Service", "VirtualPetCare.Service\VirtualPetCare.Service.csproj", "{6E1FAE56-CBF2-4B6A-85C2-844EE926EFFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualPetCare.Repository", "VirtualPetCare.Repository\VirtualPetCare.Repository.csproj", "{8F5267ED-29B7-4B4B-96B4-BC22FAF2112E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{8F5267ED-29B7-4B4B-96B4-BC22FAF2112E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5267ED-29B7-4B4B-96B4-BC22FAF2112E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5267ED-29B7-4B4B-96B4-BC22FAF2112E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E1FAE56-CBF2-4B6A-85C2-844EE926EFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E1FAE56-CBF2-4B6A-85C2-844EE926EFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E1FAE56-CBF2-4B6A-85C2-844EE926EFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E1FAE56-CBF2-4B6A-85C2-844EE926EFFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

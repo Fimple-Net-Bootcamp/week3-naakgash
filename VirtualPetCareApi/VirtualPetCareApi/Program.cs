@@ -1,9 +1,17 @@
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using VirtualPetCare.Core.Repositories;
 using VirtualPetCare.Repository;
+using VirtualPetCare.Repository.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPetRepository, PetRepository>();
+builder.Services.AddScoped<IHealthConditionRepository, HealthConditionRepository>();
+builder.Services.AddScoped<IFoodRepository, FoodRepository>();
+builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
 
 // Add services to the container.
 builder.Services.AddDbContext<PetDbContext>(x =>

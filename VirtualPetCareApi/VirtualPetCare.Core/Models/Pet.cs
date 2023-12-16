@@ -2,7 +2,7 @@
 
 namespace VirtualPetCare.Core.Models;
 
-public class Pet : Entity<long>
+public class Pet : Entity<int>
 {
     public byte Age { get; set; }
     public User User { get; set; }

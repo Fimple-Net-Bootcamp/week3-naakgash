@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VirtualPetCare.Core.Interfaces.Repositories;
+﻿using VirtualPetCare.Core.Models;
+using VirtualPetCare.Core.Repositories;
 
 namespace VirtualPetCare.Repository.Repositories;
 
-public class FoodRepository<T> : IFoodRepository<T> where T : class
+public class FoodRepository : IFoodRepository
 {
-    public Task FeedAsync(T entitiy)
+    private readonly PetDbContext _petDbContext;
+    public FoodRepository(PetDbContext petDbContext)
+    {
+        _petDbContext = petDbContext;
+    }
+    public Task FeedAsync(Food food)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<T> GetAll()
+    public IQueryable<Food> GetAll()
     {
-        throw new NotImplementedException();
+        return _petDbContext.Foods;
     }
 }
